@@ -2,6 +2,12 @@ doctype html
 head
   meta(charset="utf-8")
   title 单个表单项的检验
+  style(media="screen").
+    #text {
+      position: absolute;
+      top: 30px;
+      left: 5px;
+    }
 body
   form
     input#target(type="text", name="username", value="", placeholder="必填，字数4~16")
