@@ -2,28 +2,11 @@ doctype html
 head
   meta(charset="utf-8")
   title 单个表单项的检验
-  style(media="screen").
-    #text {
-      position: absolute;
-      top: 30px;
-      left: 5px;
-    }
+  script(src="index.js", charset="utf-8")
+  link(rel="stylesheet", href="index.css")
 body
-  form
-    input#target(type="text", name="username", value="", placeholder="必填，字数4~16")
-    span#text
-    input(type="button", name="name", value="Verify", onclick="verify()")
-  script.
-    'use strict'
-    function getLen(str) {
-      return (str.length + encodeURI(str).split(/%..|./).length - 1) / 2;
-    }
-    function verify() {
-      let value = document.getElementById('target').value;
-      if (getLen(value) < 4 || getLen(value) > 16) {
-        document.getElementById('text').innerHTML = '错误';
-        return false;
-      }
-      document.getElementById('text').innerHTML = '正确';
-      return true;
-    }
+  .box
+    label(for="name") 名称
+    input#name(type="text", name="name", onblur="check('name')", placeholder="必填，长度为4-16个字符")
+    div()
+  input(type="button", name="submit", value="提交", onclick="submit()")

@@ -1,17 +1,1 @@
-<!DOCTYPE html><head><meta charset="utf-8"><title>单个表单项的检验</title><style media="screen">#text {
-  position: absolute;
-  top: 30px;
-  left: 5px;
-}</style></head><body><form><input id="target" type="text" name="username" value="" placeholder="必填，字数4~16"><span id="text"></span><input type="button" name="name" value="Verify" onclick="verify()"></form><script>'use strict'
-function getLen(str) {
-  return (str.length + encodeURI(str).split(/%..|./).length - 1) / 2;
-}
-function verify() {
-  let value = document.getElementById('target').value;
-  if (getLen(value) < 4 || getLen(value) > 16) {
-    document.getElementById('text').innerHTML = '错误';
-    return false;
-  }
-  document.getElementById('text').innerHTML = '正确';
-  return true;
-}</script></body>
+<!DOCTYPE html><head><meta charset="utf-8"><title>单个表单项的检验</title><script src="index.js" charset="utf-8"></script><link rel="stylesheet" href="index.css"></head><body><div class="box"><label for="name">名称</label><input id="name" type="text" name="name" onblur="check('name')" placeholder="必填，长度为4-16个字符"><div></div></div><input type="button" name="submit" value="提交" onclick="submit()"></body>
